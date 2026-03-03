@@ -24,6 +24,23 @@ The pipeline utilizes a decoupled "Source-Broker-Sink" logic:
 
 ---
 
+## 🖼️ Insights & Visualization (Grafana Dashboard)
+
+The final layer of the pipeline provides real-time visualization of market movements and system health. Below are snapshots of the executive dashboard querying the **Apache Cassandra** sink:
+
+| Market Overview | Price Trends & Volatility |
+| :--- | :--- |
+| ![Dashboard Overview](reports/WhatsApp%20Image%202026-03-03%20at%2019.52.44.jpeg) | ![Price Trends](reports/WhatsApp%20Image%202026-03-03%20at%2019.53.11.jpeg) |
+
+**Key Dashboard Features:**
+* **Real-Time Ticker:** Live price updates for 650+ USDT pairs.
+* **Top Movers:** Dynamic tracking of 24h gainers and losers.
+* **Pipeline Latency:** Heatmap of the time difference between Postgres ingestion and Cassandra persistence (currently averaging < 6s).
+
+![System Metrics](reports/WhatsApp%20Image%202026-03-03%20at%2019.53.44.jpeg)
+
+---
+
 ## 🛠️ Technical Stack
 | Layer | Tools | Purpose |
 | :--- | :--- | :--- |
@@ -51,6 +68,7 @@ crypto-real-time-pipeline/
 ├── connectors/             # Kafka Connect JSON configs & registration scripts
 ├── ingestion/              # Python poller logic & API handlers
 ├── logs/                   # Process IDs (PID) and pipeline logs
+├── reports/                # Dashboard screenshots and analysis exports
 ├── scripts/                # Setup & Verification bash utilities
 ├── sql/                    # PostgreSQL and Cassandra schema definitions
 ├── docker-compose.yml      # Multi-service container orchestration
