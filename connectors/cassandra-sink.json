@@ -1,0 +1,24 @@
+{
+  "name": "cassandra-sink-crypto-v2",
+  "config": {
+    "connector.class": "com.datastax.oss.kafka.sink.CassandraSinkConnector",
+    "tasks.max": "1",
+
+    "topics": "postgres.public.crypto_ticker_24h",
+
+    "contactPoints": "cassandra",
+    "port": "9042",
+    "loadBalancing.localDc": "dc1",
+
+    "topic.postgres.public.crypto_ticker_24h.crypto_market.ticker_history.mapping": "symbol=value.symbol, ingested_at=value.last_update, price_usdt=value.price_usdt, price_change_percent=value.price_change_percent, volume_usdt=value.volume_usdt, high_price_24h=value.high_price_24h, low_price_24h=value.low_price_24h",
+    "topic.postgres.public.crypto_ticker_24h.crypto_market.ticker_history.consistencyLevel": "LOCAL_ONE",
+    "topic.postgres.public.crypto_ticker_24h.crypto_market.ticker_history.ttl": "-1",
+    "topic.postgres.public.crypto_ticker_24h.crypto_market.ticker_history.nullToUnset": "true",
+    "topic.postgres.public.crypto_ticker_24h.crypto_market.ticker_history.deletesEnabled": "false",
+
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false"
+  }
+}

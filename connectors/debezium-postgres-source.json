@@ -1,0 +1,38 @@
+{
+  "name": "postgres-source-crypto",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "cryptouser",
+    "database.password": "cryptopass",
+    "database.dbname": "cryptodb",
+
+    "topic.prefix": "postgres",
+    "table.include.list": "public.crypto_ticker_24h",
+
+    "plugin.name": "pgoutput",
+    "publication.name": "dbz_publication",
+    "publication.autocreate.mode": "disabled",
+    "slot.name": "debezium_crypto_slot",
+
+    "heartbeat.interval.ms": "10000",
+    "snapshot.mode": "initial",
+
+    "decimal.handling.mode": "double",
+
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "transforms.unwrap.add.fields": "op,ts_ms",
+    "transforms.unwrap.add.fields.prefix": "__dbz__"
+  }
+}
