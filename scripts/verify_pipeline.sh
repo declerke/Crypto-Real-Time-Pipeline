@@ -29,7 +29,6 @@ if [ ! -d "venv" ]; then
     python3 -m venv venv || fail "Failed to create venv. Ensure python3-venv is installed."
 fi
 
-# Ensure requests is installed in the venv
 if ! ./venv/bin/pip show requests > /dev/null 2>&1; then
     info "Installing 'requests' in venv..."
     ./venv/bin/pip install requests > /dev/null 2>&1 || fail "Failed to install requests."
@@ -126,7 +125,6 @@ fi
 
 section "Layer 6: Ingestion Poller"
 
-# Check by PID file first, then fallback to pgrep
 RUNNING=0
 if [ -f "logs/poller.pid" ]; then
     POLLER_PID=$(cat logs/poller.pid)
