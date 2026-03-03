@@ -30,7 +30,7 @@ The final layer of the pipeline provides real-time visualization of market movem
 
 | Market Overview | Price Trends & Volatility |
 | :--- | :--- |
-| ![Dashboard Overview](reports/WhatsApp%20Image%202026-03-03%20at%2019.52.44.jpeg) | ![Price Trends](reports/WhatsApp%20Image%202026-03-03%20at%2019.53.11.jpeg) |
+| ![Dashboard Overview](reports/WhatsApp%20Image%202026-03-03%20at%2019.53.11.jpeg) | ![Price Trends](reports/WhatsApp%20Image%202026-03-03%20at%2019.52.44.jpeg) |
 
 **Key Dashboard Features:**
 * **Real-Time Ticker:** Live price updates for 650+ USDT pairs.
